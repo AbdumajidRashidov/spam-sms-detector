@@ -81,7 +81,7 @@ with tab2:
 
 with tab3:
     st.title("Malware Detector")
-    input_sms = st.file_uploader("Choose a CSV file")
+    input_sms = st.file_uploader("Choose your file")
 
     if st.button('Predict', key='malware'):
 
