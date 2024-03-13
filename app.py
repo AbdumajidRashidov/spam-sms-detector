@@ -77,7 +77,6 @@ with tab2:
             st.header("This is a suspicious web site")
         else:
             st.header("This is a safe web site")
-            st.header(result)
 
 with tab3:
     st.title("Malware Detector")
