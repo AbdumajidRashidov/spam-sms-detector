@@ -98,7 +98,7 @@ with tab1:
 
 
 with tab2:
-    st.title("Suspicious Web Site Detector")
+    st.title("Suspicious Website Detector")
     input_url = st.text_input("Enter the link")
 
     if st.button('Detect', key='web'):
