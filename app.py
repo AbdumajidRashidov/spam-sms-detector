@@ -74,7 +74,7 @@ with tab2:
         result = modelUrl.predict(vector_input)[0]
         # 4. Display
         if result == 1:
-            st.header("This is a suspicious web site")
+            st.header("This might be a suspicious web site")
         else:
             st.header("This is a safe web site")
 
