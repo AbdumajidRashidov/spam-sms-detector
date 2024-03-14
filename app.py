@@ -81,18 +81,20 @@ with tab1:
     input_sms = st.text_area("Enter the message")
 
     if st.button('Predict', key='email'):
-
-        # 1. preprocess
-        transformed_sms = transform_text(input_sms)
-        # 2. vectorize
-        vector_input = tfidf.transform([transformed_sms])
-        # 3. predict
-        result = model.predict(vector_input)[0]
-        # 4. Display
-        if result == 1:
-            st.header("Spam")
+        if input_sms == "":
+            st.subheader("Please enter a message")
         else:
-            st.header("Not Spam")
+            # 1. preprocess
+            transformed_sms = transform_text(input_sms)
+            # 2. vectorize
+            vector_input = tfidf.transform([transformed_sms])
+            # 3. predict
+            result = model.predict(vector_input)[0]
+            # 4. Display
+            if result == 1:
+                st.header("Spam")
+            else:
+                st.header("Not Spam")
 
 
 with tab2:
@@ -102,14 +104,17 @@ with tab2:
     if st.button('Detect', key='web'):
         # 1. preprocess
         # 2. vectorize
-        vector_input = tfidfUrl.transform([input_url])
-        # 3. predict
-        result = modelUrl.predict(vector_input)[0]
-        # 4. Display
-        if result == 1:
-            st.header("This might be a suspicious web site")
+        if input_url.startswith('http') or input_url.startswith('www') or input_url.startswith('https'):
+            vector_input = tfidfUrl.transform([input_url])
+            # 3. predict
+            result = modelUrl.predict(vector_input)[0]
+            # 4. Display
+            if result == 1:
+                st.header("This might be a suspicious web site")
+            else:
+                st.header("This is a safe web site")
         else:
-            st.header("This is a safe web site")
+            st.subheader("Please enter a valid URL")
 
 with tab3:
     st.title("Malware Detector")
