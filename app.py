@@ -72,8 +72,6 @@ def file_to_csv(upload_file):
 
     return X
 
-
-
 tab1, tab2, tab3 = st.tabs(["Spam emails", "Web sites", "Malware"])
 
 with tab1:
@@ -95,7 +93,6 @@ with tab1:
                 st.header("Spam")
             else:
                 st.header("Not Spam")
-
 
 with tab2:
     st.title("Suspicious Website Detector")
